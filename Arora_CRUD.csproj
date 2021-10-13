@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>Preview</LangVersion>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <PackageId>Arora.HappyCRUD</PackageId>
+	  <Authors>Sharaf Mansour</Authors>
+	  <Company>Arora</Company>
+	  <Product>HappyCRUD</Product>
+	  <Description>Library that perform CRUD on IList &lt;T&gt; while tracking Edit State and Validations</Description>
+	  <PackageProjectUrl>https://github.com/Sharaf-Mansour/HappyCrud</PackageProjectUrl>
+ 
+
+	  <RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
+	  <PackageTags>CRUD,LIST,Object,Edit</PackageTags>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="README.md" />
+  </ItemGroup>
+
+</Project>
