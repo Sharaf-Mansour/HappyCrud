@@ -16,9 +16,9 @@
 	  <RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
 	  <PackageTags>CRUD,LIST,Object,Edit</PackageTags>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Version>1.0.1</Version>
-	  <AssemblyVersion>1.0.1</AssemblyVersion>
-	  <FileVersion>1.0.1</FileVersion>
+	  <Version>1.0.2</Version>
+	  <AssemblyVersion>1.0.2</AssemblyVersion>
+	  <FileVersion>1.0.2</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
