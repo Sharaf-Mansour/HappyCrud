@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -16,9 +16,10 @@
 	  <RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
 	  <PackageTags>CRUD,LIST,Object,Edit</PackageTags>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Version>1.0.2</Version>
-	  <AssemblyVersion>1.0.2</AssemblyVersion>
-	  <FileVersion>1.0.2</FileVersion>
+	  <Version>1.0.3</Version>
+	  <AssemblyVersion>1.0.3</AssemblyVersion>
+	  <FileVersion>1.0.3</FileVersion>
+	  <PackageReleaseNotes>Improve State Tracking</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

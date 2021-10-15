@@ -41,7 +41,7 @@ public static class CRUDExtantions
         }
         if (!IsInEditState &&  Items![Index].InEditState)
         {
-            (IsStartItem,Items![Index].InEditState, IsInEditState, PrevIndex) = (true, true, true, Index);
+            (IsStartItem, IsInEditState, PrevIndex) = (true, true, Index);
         }
     }
     /// <summary>
@@ -59,7 +59,7 @@ public static class CRUDExtantions
         else if (IsInEditState && IsStartItem)
         {
             Items?.RemoveAt(Items!.Count -1);
-            (IsStartItem, PrevIndex, IsInEditState, TItem) = (false, -1, false, new());
+            (IsStartItem, PrevIndex, IsInEditState) = (false, -1, false);
         }
     }
     /// <summary>
@@ -72,12 +72,7 @@ public static class CRUDExtantions
         if (IsInEditState )
         {
             Items?.RemoveAt(PrevIndex);
-            (PrevIndex, IsInEditState, TItem) = (-1, false, new());
-        }
-        else if (!IsInEditState && IsStartItem)
-        {
-            Items?.RemoveAt(Items!.Count -1);
-            (IsStartItem,PrevIndex, IsInEditState, TItem) = (false, -1, false, new());
+            (IsStartItem, PrevIndex, IsInEditState, TItem) = (false, -1, false, new());
         }
     }
     /// <summary>
@@ -90,12 +85,7 @@ public static class CRUDExtantions
         if (IsInEditState && Items![PrevIndex].IsValid() && !IsStartItem)
         {
             Items![PrevIndex].InEditState = false;
-            (PrevIndex, IsInEditState, TItem) = (-1, false, new());
-        }
-        else if (IsInEditState && IsStartItem && Items![Items!.Count -1].IsValid()  )
-        {
-            Items![Items!.Count -1].InEditState = false;
-            (IsStartItem,PrevIndex, IsInEditState, TItem) = (false, -1, false, new());
+            (IsStartItem, PrevIndex, IsInEditState, TItem) = (false, -1, false, new());
         }
     }
     /// <summary>
