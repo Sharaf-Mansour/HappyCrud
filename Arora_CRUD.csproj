@@ -16,9 +16,9 @@
 	  <RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
 	  <PackageTags>CRUD,LIST,Object,Edit</PackageTags>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <Version>1.0.3</Version>
-	  <AssemblyVersion>1.0.3</AssemblyVersion>
-	  <FileVersion>1.0.3</FileVersion>
+	  <Version>1.0.4</Version>
+	  <AssemblyVersion>1.0.4</AssemblyVersion>
+	  <FileVersion>1.0.4</FileVersion>
 	  <PackageReleaseNotes>Improve State Tracking</PackageReleaseNotes>
   </PropertyGroup>
 

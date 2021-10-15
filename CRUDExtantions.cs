@@ -82,7 +82,7 @@ public static class CRUDExtantions
     /// <param name="Items"></param>
     public static void Save<T>(this IList<T>? Items) where T : IValidation
     {
-        if (IsInEditState && Items![PrevIndex].IsValid() && !IsStartItem)
+        if (IsInEditState && Items![PrevIndex].IsValid())
         {
             Items![PrevIndex].InEditState = false;
             (IsStartItem, PrevIndex, IsInEditState, TItem) = (false, -1, false, new());
