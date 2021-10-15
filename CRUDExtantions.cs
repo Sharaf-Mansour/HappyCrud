@@ -1,13 +1,10 @@
 ﻿using static HappyCRUD.CRUD;
 namespace HappyCRUD;
-/// <summary>
-/// 
-/// </summary>
 public  static class CRUDExtantions
 {
         private static int PrevIndex { get; set; } = -1;
         private static object? TItem { get; set; } = new();
-       private static void Swap<T>(IList<T>? Items, int Index, int dir)
+       private static void Swap<T>(this IList<T>? Items, int Index, int dir)
        {
         T Current = Items![Index];
         Items![Index] = Items![Index + dir];
@@ -32,10 +29,13 @@ public  static class CRUDExtantions
     /// <param name="Items"></param>
     /// <param name="Index">Pass the item's index to edit</param>
     public static void StartEdit<T>(this IList<T>? Items, int Index) where T : ICloneable, IValidation
+    {
+        if (!IsInEditState)
         {
-            if (!IsInEditState)
-            (TItem, Items![Index].InEditState, IsInEditState, PrevIndex) = ((T)Items![Index].Clone(), true, true, Index);
+            TItem = (T)Items![Index].Clone();
+            (Items![Index].InEditState, IsInEditState, PrevIndex) = (true, true, Index);
         }
+    }
     /// <summary>
     /// Exit you from edit state and undo unsaved changes
     /// </summary>  
@@ -69,10 +69,11 @@ public  static class CRUDExtantions
     /// <param name="Items"></param>
     public static void Save<T>(this IList<T>? Items) where T : IValidation
         {
-            if (IsInEditState && Items![PrevIndex].IsValid())
+            if (IsInEditState && Items![PrevIndex].IsValid()) { 
                 Items![PrevIndex].InEditState = false;
             (PrevIndex, IsInEditState, TItem) = (-1, false, new());
         }
+    }
     /// <summary>
     /// Swap with previous item: Needs Index
     /// </summary>
@@ -81,8 +82,7 @@ public  static class CRUDExtantions
     /// <param name="Index">Pass current item's index</param>
     public static void MoveUp<T>(this IList<T>? Items, int Index) where T : IValidation
         {
-            if (Index > 0 && Items!.IsModelValid())
-                Swap(Items, Index, -1);
+            if (Index > 0 && Items!.IsModelValid()) Items.Swap(Index, -1);
         }
     /// <summary>
     /// Swap with next item: Needs Index
@@ -92,8 +92,7 @@ public  static class CRUDExtantions
     /// <param name="Index">Pass current item's index</param>
     public static void MoveDown<T>(this IList<T>? Items, int Index) where T : IValidation
         {
-            if (Index < Items!.Count - 1 && Items!.IsModelValid())
-                Swap(Items, Index, +1);
+            if (Index < Items!.Count - 1 && Items!.IsModelValid()) Items.Swap(Index, +1);
         }
    // public static void Set<T>(this IList<T>? items, T item) => items![PrevIndex] = item;
 }
