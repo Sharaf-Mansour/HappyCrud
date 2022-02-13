@@ -19,7 +19,7 @@ list.IsModelValid(); // checks if all items in list is valid
 list.First().InEditState = default; //Checks if item is in edit state 
 CRUD.IsInEditState = default; //Checks if there is any item is in edit state in the whole model. 
 ```
-# Blazor Exmable 
+# Blazor Example 
 To Create item.
 ```razor
   <button type="button" class="btn btn-primary"  @onclick="()=>CVModel.CV.Educations.Create()">Add Education</button>
