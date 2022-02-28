@@ -4,8 +4,7 @@
 /// </summary>
 public static class CRUD
     {
-       // public static int Max { get; set; } = 10; //Allowed Size Of item
-       /// <summary>
+        /// <summary>
        /// Get and Set IsInEditState to track Model State
        /// </summary>
         public static bool IsInEditState { get; set; }

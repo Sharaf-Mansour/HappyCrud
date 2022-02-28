@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net48;netstandard2.1;net6.0</TargetFrameworks>
+
+		<LangVersion>Preview</LangVersion>
+		<Nullable>enable</Nullable>
+		<PackageId>Arora.HappyCRUD</PackageId>
+		<Authors>Sharaf Mansour</Authors>
+		<Company>Arora</Company>
+		<Product>HappyCRUD</Product>
+		<Description>Library that perform CRUD on IList &lt;T&gt; while tracking Edit State and Validations</Description>
+		<PackageProjectUrl>https://github.com/Sharaf-Mansour/HappyCrud</PackageProjectUrl>
+
+
+		<RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
+		<PackageTags>CRUD,LIST,Object,Edit</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>1.0.5</Version>
+		<AssemblyVersion>1.0.5</AssemblyVersion>
+		<FileVersion>1.0.5</FileVersion>
+		<PackageReleaseNotes>Use default DeepCloner</PackageReleaseNotes>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="README.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DeepCloner" Version="0.10.3" />
+	</ItemGroup>
+
+</Project>
