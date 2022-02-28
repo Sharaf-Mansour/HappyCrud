@@ -16,9 +16,9 @@
 		<RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
 		<PackageTags>CRUD,LIST,Object,Edit</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.0.5</Version>
-		<AssemblyVersion>1.0.5</AssemblyVersion>
-		<FileVersion>1.0.5</FileVersion>
+		<Version>1.0.6</Version>
+		<AssemblyVersion>1.0.6</AssemblyVersion>
+		<FileVersion>1.0.6</FileVersion>
 		<PackageReleaseNotes>Use default DeepCloner</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
@@ -37,10 +37,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
