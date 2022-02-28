@@ -88,6 +88,6 @@ using HappyCRUD;
     }
 ```
 # Model Sample Extra
-![happy Clone](https://user-images.githubusercontent.com/55330747/138024816-a71d4837-fdee-4e01-adf1-bb9eb8d79913.png)
-![happy Validate](https://user-images.githubusercontent.com/55330747/138024829-6d7ce722-33b0-4f16-80a2-83f3d831b969.png)
+  ![HappyCRUD](https://user-images.githubusercontent.com/55330747/156047501-9231debe-7b5c-4fdf-bf1d-1060f731434c.jpg)
+
 
