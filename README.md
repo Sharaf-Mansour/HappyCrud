@@ -75,16 +75,15 @@ else
    }
  ```
 # Model Sample
-Use ICloneable and IValidation Interfaces
+ IValidation Interfaces
 ```C#
 using HappyCRUD;
-     public class Education : ICloneable, IValidation
+     public class Education : IValidation
     {
         public virtual string? LocationName { get; set; }
         public string? Year { get; set; }
         public bool IsValid() => !string.IsNullOrWhiteSpace(LocationName) && !string.IsNullOrWhiteSpace(Year);
         public bool InEditState { get; set; }
-        object ICloneable.Clone() => new Education() { LocationName = this.LocationName, Year = this.Year };
     }
 ```
 # Model Sample Extra
