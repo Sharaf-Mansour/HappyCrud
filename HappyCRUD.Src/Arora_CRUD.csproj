@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net48;netstandard2.1;net6.0</TargetFrameworks>
+		<TargetFrameworks>net47;netstandard2.1;net6</TargetFrameworks>
 
 		<LangVersion>Preview</LangVersion>
 		<Nullable>enable</Nullable>
@@ -14,14 +14,20 @@
 
 
 		<RepositoryUrl>https://github.com/Sharaf-Mansour/HappyCrud</RepositoryUrl>
-		<PackageTags>CRUD,LIST,Object,Edit</PackageTags>
+		<PackageTags>CRUD,LIST,Object,Edit,State,Swap,EditModel,EditForm,Binding,Move Items, Swap Item, Create,Read,Update,Detele</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<Version>1.0.6</Version>
-		<AssemblyVersion>1.0.6</AssemblyVersion>
-		<FileVersion>1.0.6</FileVersion>
-		<PackageReleaseNotes>Use default DeepCloner</PackageReleaseNotes>
+		<Version>1.0.7</Version>
+		<AssemblyVersion>1.0.7</AssemblyVersion>
+		<FileVersion>1.0.7</FileVersion>
+		<PackageReleaseNotes>
+			New CreateHere function
+			New MoveTo function
+			New SwapWith function
+		</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<SignAssembly>False</SignAssembly>
+		<RepositoryType>GitHub</RepositoryType>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,6 +36,22 @@
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+		<WarningLevel>7</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+		<WarningLevel>7</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+		<WarningLevel>7</WarningLevel>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+		<WarningLevel>7</WarningLevel>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -44,7 +66,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="DeepCloner" Version="0.10.3" />
+		<PackageReference Include="DeepCloner" Version="0.10.4" />
 	</ItemGroup>
 
 </Project>

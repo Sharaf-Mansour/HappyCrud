@@ -2,7 +2,7 @@
 global using System;
 global using System.Linq;
 global using static HappyCRUD.CRUD;
-using Force.DeepCloner;
+global using Force.DeepCloner;
 
 namespace HappyCRUD;
 public static class CRUDExtantions
@@ -19,6 +19,12 @@ public static class CRUDExtantions
     /// <param name="Items"></param>
     /// <returns>True if valid or has no elements and False if not valid</returns>
     public static bool IsModelValid<T>(this IList<T> Items) where T : IValidation => Items.All(_ => _.IsValid()) && Items.All(_ => !_.InEditState);
+
+    /// <summary>
+    /// A Method Create a new empty item at the end of the List
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="Items"></param>
     public static void Create<T>(this IList<T>? Items) where T : IValidation, new()
     {
         if (!IsInEditState && Items!.IsModelValid())
@@ -26,6 +32,21 @@ public static class CRUDExtantions
             Items!.Add(new() { InEditState = true });
             Items!.StartEdit(Items.Count - 1);
         }
+    }
+    /// <summary>
+    /// A Method Create a new empty item at the given location of the List or at the start of index was not set
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="Items"></param>
+    /// <param name="Index">Pass Create Location default 0 (Start of list) </param>
+    public static void CreateHere<T>(this IList<T>? Items, int Index = 0) where T : IValidation, new()
+    {
+        if (Index < Items!.Count() && Index >= 0)
+            if (!IsInEditState && Items!.IsModelValid())
+            {
+                Items!.Insert(Index, new() { InEditState = true });
+                Items!.StartEdit(Index);
+            }
     }
     /// <summary>
     /// Begin edit state and mark item for edit: Needs Index
@@ -101,6 +122,40 @@ public static class CRUDExtantions
     {
         if (Index < Items!.Count - 1 && Items!.IsModelValid()) Items.Swap(Index, +1);
     }
+    /// <summary>
+    /// Swap with given item: Needs Index
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="Items"></param>
+    /// <param name="Index">Pass current item's index</param>
+    /// <param name="IndexTo">Pass location index</param>
+
+    public static void SwapWith<T>(this IList<T>? Items, int Index, int IndexTo) where T : IValidation
+    {
+        if (IndexTo >= Items!.Count || IndexTo < 0)
+            return;
+        var IndexDir = IndexTo - Index;
+        if (Index < Items!.Count && Index >= 0 && Items!.IsModelValid()) Items.Swap(Index, IndexDir);
+    }
+    /// <summary>
+    /// Move to  given Index: Needs Index
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="Items"></param>
+    /// <param name="Index">Pass current item's index</param>
+    /// <param name="IndexTo">Pass location index</param>
+    public static void MoveTo<T>(this IList<T>? Items, int Index, int IndexTo) where T : IValidation
+    {
+        if (IndexTo >= Items!.Count || IndexTo < 0)
+            return;
+        if (Index < Items!.Count && Index >= 0 && Items!.IsModelValid())
+        {
+            var temp = Items![Index];
+            Items.RemoveAt(Index);
+            Items.Insert(IndexTo, temp);
+        }
+    }
+
     // public static void Set<T>(this IList<T>? items, T item) => items![PrevIndex] = item;
     //public static IList<T>? SetAsIndex<T>(this IList<T>? Items, int Index) { PrevIndex = Index; return Items; }
 }
