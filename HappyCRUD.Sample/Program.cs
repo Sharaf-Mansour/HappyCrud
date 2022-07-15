@@ -29,11 +29,14 @@ list.StartEdit(3);
 list[3].Name = "D";
 
 list.Save();
-
-
-list.Delete();
-
-
+list.CreateHere();
+list[0].Name = "2 A";
+list.Save();
+list.CreateHere(2);
+list[2].Name = "2 D";
+list.Save();
+list.MoveTo(4, 0);
+list.SwapWith(4, 0);
 
 Console.WriteLine($"Is the model Valid ? {list.IsModelValid()}");
 Console.WriteLine($"Is the Model in Edit state ? {CRUD.IsInEditState}");
