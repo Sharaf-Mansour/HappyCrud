@@ -8,12 +8,16 @@ here is all the Functions and their useage in HappyCRUD
    ```csharp
 using HappyCRUD; //Using HappyCRUD 
 List<Education> list = new(); //Create List of T
-list.Create(); //Create new item in array and enables Edit State
+list.Create(); //Create new item in List and enables Edit State
+list.CreateHere(1); //Create new item in a given index in List and enables Edit State
+list.CreateHere(); //Create new item at the start of the List and enables Edit State
 list.Cancel(); //Shut down the edit state and restore previous state 
 list.Delete(); //Shut down the edit state and delete the item
 list.Save(); //shut down the edit state and save the item
 list.MoveUp(1); //Takes item via index and move it up
 list.MoveDown(0); //Takes item via index and move it down
+list.MoveTo(1,5); //Takes item via index and move it to an index then shift the others down
+list.SwapWith(1,5); //Takes item via index and Swap it with other item at given index
 list.StartEdit(1); //Stat edit state for item via index
 list.IsModelValid(); // checks if all items in list is valid
 list.First().InEditState = default; //Checks if item is in edit state 
@@ -21,11 +25,11 @@ CRUD.IsInEditState = default; //Checks if there is any item is in edit state in 
 ```
 # Blazor Example 
 To Create item.
-```razor
+```C#
   <button type="button" class="btn btn-primary"  @onclick="()=>CVModel.CV.Educations.Create()">Add Education</button>
 ```
 To Cancel, Save or Delete
-```razor
+```C#
 @if (CVModel.CV.Educations[j].InEditState)
   {                   
       <button type="button" class="btn btn-outline-dark" @onclick="()=>CVModel.CV.Educations.Cancel()">Cancel</button>
@@ -34,7 +38,7 @@ To Cancel, Save or Delete
   }
 ```
 To edit  or move item up and down
-```razor
+```C#
 @if (!CRUD.IsInEditState)
   {
      @if(!CVModel.CV.Educations[j].InEditState)
@@ -46,7 +50,7 @@ To edit  or move item up and down
   }   
  ```
  bind to edit value
- ```razor
+ ```C#
  @if( CVModel.CV.Educations[j].InEditState )
    {
        <div class="form-group">
