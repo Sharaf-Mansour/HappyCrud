@@ -15,11 +15,13 @@ list.Save();
 list.Create();
 list[2].Name = "C";
 
-list.Save();
+ list.Save();
 list.StartEdit(2);
 list[2].Name = "C Edit";
+  Console.WriteLine(list[2].Name);
 
 list.Cancel();
+ Console.WriteLine(list[2].Name);
 
 list.Create();
 list[3].Name = "A";
@@ -35,16 +37,13 @@ list.Save();
 list.CreateHere(2);
 list[2].Name = "2 D";
 list.Save();
-list.MoveTo(4, 0);
+list.MoveTo(0, 4);
 list.SwapWith(4, 0);
 
 Console.WriteLine($"Is the model Valid ? {list.IsModelValid()}");
 Console.WriteLine($"Is the Model in Edit state ? {CRUD.IsInEditState}");
 
-foreach (var item in list)
-{
-    Console.WriteLine(item);
-}
+foreach (var item in list)  Console.WriteLine(item);
 
 class C : IValidation
 {
